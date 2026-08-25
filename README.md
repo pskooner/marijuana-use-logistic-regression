@@ -130,3 +130,97 @@ marijuana-use-logistic-regression/
 │
 └── docs/
     └── project_notes.md
+```
+## Analysis Workflow
+
+### 1. Data Preparation
+
+The dataset was prepared for analysis by defining categorical variables and their reference levels.
+
+### 2. Full Logistic Regression Model
+
+A multivariable logistic regression model was fitted with marijuana use as the response variable and alcohol use, cigarette use, gender, and race as explanatory variables.
+
+### 3. Null Model Comparison
+
+The full model was compared with an intercept-only model using likelihood-based testing and AIC.
+
+### 4. Forward Selection
+
+Predictors were added sequentially according to the specified entry criterion.
+
+### 5. Backward Elimination
+
+The full model was reduced by removing variables that did not meet the retention criterion.
+
+### 6. Stepwise Selection
+
+Forward and backward procedures were combined using entry and removal thresholds.
+
+### 7. Model Comparison
+
+The final models obtained from forward, backward, and stepwise selection were compared using log-likelihood, AIC, and BIC.
+
+---
+
+## Software
+
+### R
+
+The R analysis uses:
+
+- `glm()`
+- Binomial logistic regression
+- Odds ratio estimation
+- `step()`
+- AIC comparison
+
+### Stata
+
+The Stata analysis uses:
+
+- `logistic`
+- Frequency weights
+- `stepwise`
+- `lrtest`
+- `estat ic`
+- Stored-model comparison
+
+---
+
+## Methods Demonstrated
+
+This project demonstrates:
+
+- Categorical data analysis
+- Binary logistic regression
+- Odds ratios
+- Multivariable modeling
+- Frequency-weighted analysis
+- Likelihood-ratio testing
+- Forward variable selection
+- Backward elimination
+- Stepwise selection
+- AIC-based model comparison
+- Cross-software implementation in R and Stata
+
+---
+
+## Reproducibility
+
+The repository contains:
+
+- The analysis dataset
+- An R implementation
+- A Stata implementation
+- Model-selection summaries
+
+The scripts can be used to reproduce the main analyses presented in the project.
+
+---
+
+## Academic Context
+
+This analysis was completed as part of graduate coursework in Categorical Data Analysis in the Department of Biostatistics and Data Science at UTHealth Houston School of Public Health.
+
+The coursework analysis was reorganized into a standalone reproducible statistical project for educational and portfolio purposes.
