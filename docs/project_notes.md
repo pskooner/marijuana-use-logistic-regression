@@ -2,11 +2,8 @@
 
 ## Academic Context
 
-This analysis was originally completed as part of graduate coursework in Categorical Data Analysis at UTHealth Houston School of Public Health.
+This project was completed as part of my graduate Categorical Data Analysis coursework at UTHealth Houston School of Public Health. The analysis uses the `Substance2` dataset to examine logistic regression and compare different model selection approaches.
 
-The original assignment focused on logistic regression model selection using the `Substance2` dataset.
-
-For this repository, the analysis has been reorganized into a standalone reproducible statistical project.
 
 ## Analysis Question
 
