@@ -75,9 +75,14 @@ The candidate predictors were:
 
 A binary logistic regression model was used to estimate associations between the explanatory variables and marijuana use.
 
-The initial full model included all four candidate predictors.
+The initial full model included all four candidate predictors:
 
-An intercept-only model was also fitted to assess the improvement in model fit attributable to the explanatory variables.
+- Alcohol use
+- Cigarette use
+- Gender
+- Race
+
+An intercept-only model was also fitted to assess whether inclusion of the explanatory variables improved model fit.
 
 Three variable-selection approaches were evaluated:
 
@@ -85,25 +90,107 @@ Three variable-selection approaches were evaluated:
 2. Backward elimination
 3. Stepwise selection
 
-Model fit and parsimony were compared using likelihood-based tests and information criteria including AIC.
+Model fit and parsimony were compared using likelihood-based tests and information criteria, including the Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC).
 
 ---
 
-## Key Findings
+## Results
 
-Alcohol use and cigarette use were strongly associated with marijuana use.
+### Full Logistic Regression Model
 
-Gender was also retained as an important predictor.
+The full logistic regression model included alcohol use, cigarette use, gender, and race as predictors of marijuana use.
 
-Race was not statistically significant after adjustment for the other variables and was excluded during model selection.
+The overall model was statistically significant compared with the intercept-only model:
 
-Forward selection, backward elimination, and stepwise selection all converged on the same reduced model containing:
+- **Likelihood-ratio χ²(4):** 855.91
+- **p-value:** < 0.0001
+- **Full-model AIC:** 2253.378
+- **Intercept-only model AIC:** 3101.293
+
+The substantially lower AIC for the full model indicated improved fit relative to the intercept-only model.
+
+### Predictor Results
+
+The full multivariable logistic regression model produced the following key results:
+
+| Predictor | Odds Ratio | Statistical Significance | Interpretation |
+|---|---:|---:|---|
+| Alcohol use | 19.83 | p < 0.001 | Alcohol use was strongly associated with higher odds of marijuana use. |
+| Cigarette use | 17.45 | p < 0.001 | Cigarette use was strongly associated with higher odds of marijuana use. |
+| Gender (Female vs. Male) | 0.72 | p = 0.001 | Females had lower odds of marijuana use than males after adjustment for the other predictors. |
+| Race | — | p = 0.138 | Race was not statistically significant after adjustment for the other predictors. |
+
+---
+
+## Variable Selection
+
+### Forward Selection
+
+Forward selection used a p-value threshold of 0.05 for entry.
+
+The procedure retained:
 
 - Alcohol use
 - Cigarette use
 - Gender
 
-The consistency across the three approaches indicates that the selected model was stable under the evaluated model-selection procedures.
+Race was not included in the final forward-selection model.
+
+The final forward-selection model had an AIC of **2253.573**.
+
+### Backward Elimination
+
+Backward elimination began with the full model and evaluated variables for removal.
+
+Race was removed because it did not meet the retention criterion.
+
+The final backward-selection model retained:
+
+- Alcohol use
+- Cigarette use
+- Gender
+
+The final backward-selection model had an AIC of **2253.573**.
+
+### Stepwise Selection
+
+Stepwise selection combined forward and backward procedures using entry and removal criteria.
+
+The procedure retained:
+
+- Alcohol use
+- Cigarette use
+- Gender
+
+Race was excluded from the final model.
+
+The final stepwise-selection model had an AIC of **2253.573**.
+
+---
+
+## Final Model Comparison
+
+All three variable-selection procedures converged on the same reduced model.
+
+| Selection Method | Variables Retained | Log-Likelihood | AIC | BIC |
+|---|---|---:|---:|---:|
+| Forward | Alcohol, Cigarette, Gender | -1122.787 | 2253.573 | 2276.494 |
+| Backward | Alcohol, Cigarette, Gender | -1122.787 | 2253.573 | 2276.494 |
+| Stepwise | Alcohol, Cigarette, Gender | -1122.787 | 2253.573 | 2276.494 |
+
+The identical log-likelihood, AIC, and BIC values indicate that forward, backward, and stepwise selection produced the same final model.
+
+---
+
+## Key Findings
+
+- Alcohol use and cigarette use were strong predictors of marijuana use in the multivariable analysis.
+- Gender remained statistically significant after adjustment for the other predictors.
+- Race was not statistically significant in the full model and was excluded during variable selection.
+- The full logistic regression model provided substantially better fit than the intercept-only model.
+- Forward selection, backward elimination, and stepwise selection all identified the same reduced model.
+- The final selected model contained alcohol use, cigarette use, and gender.
+- The agreement across all three selection procedures indicates that the selected model was stable across the evaluated approaches.
 
 ---
 
@@ -131,6 +218,9 @@ marijuana-use-logistic-regression/
 └── docs/
     └── project_notes.md
 ```
+
+---
+
 ## Analysis Workflow
 
 ### 1. Data Preparation
@@ -202,6 +292,7 @@ This project demonstrates:
 - Backward elimination
 - Stepwise selection
 - AIC-based model comparison
+- BIC-based model comparison
 - Cross-software implementation in R and Stata
 
 ---
@@ -217,10 +308,26 @@ The repository contains:
 
 The scripts can be used to reproduce the main analyses presented in the project.
 
+### R
+
+The R analysis can be found at:
+
+`code/marijuana_use_analysis.R`
+
+### Stata
+
+The Stata analysis can be found at:
+
+`code/marijuana_use_analysis.do`
+
+### Data
+
+The dataset used for the analysis can be found at:
+
+`data/Substance2.dat`
+
 ---
 
 ## Academic Context
 
 This analysis was completed as part of graduate coursework in Categorical Data Analysis in the Department of Biostatistics and Data Science at UTHealth Houston School of Public Health.
-
-The coursework analysis was reorganized into a standalone reproducible statistical project for educational and portfolio purposes.
